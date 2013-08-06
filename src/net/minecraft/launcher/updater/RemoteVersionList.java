@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.Proxy;
 import java.net.URL;
 import net.minecraft.launcher.Http;
+import net.minecraft.launcher.LauncherConstants;
 import net.minecraft.launcher.OperatingSystem;
 import net.minecraft.launcher.updater.VersionList;
 import net.minecraft.launcher.versions.CompleteVersion;
@@ -22,7 +23,7 @@ public class RemoteVersionList extends VersionList {
    }
 
    protected String getContent(String path) throws IOException {
-      return Http.performGet(new URL("http://webmcr.caver.org/MineCraft/MinecraftDownload/" + path), this.proxy);
+      return Http.performGet(new URL(LauncherConstants.SERVER_DOWNLOAD_URL + path), this.proxy);
    }
 
    public Proxy getProxy() {
